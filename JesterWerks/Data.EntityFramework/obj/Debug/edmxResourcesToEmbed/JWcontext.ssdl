@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JesterWerksWebsiteModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="JesterWerksWebsiteModelStoreContainer">
+    <EntitySet Name="Bookings" EntityType="JesterWerksWebsiteModel.Store.Bookings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Locations" EntityType="JesterWerksWebsiteModel.Store.Locations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Rooms" EntityType="JesterWerksWebsiteModel.Store.Rooms" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sessions" EntityType="JesterWerksWebsiteModel.Store.Sessions" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Bookings_Sessions" Association="JesterWerksWebsiteModel.Store.FK_Bookings_Sessions">
+      <End Role="Sessions" EntitySet="Sessions" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rooms_Locations" Association="JesterWerksWebsiteModel.Store.FK_Rooms_Locations">
+      <End Role="Locations" EntitySet="Locations" />
+      <End Role="Rooms" EntitySet="Rooms" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sessions_Rooms" Association="JesterWerksWebsiteModel.Store.FK_Sessions_Rooms">
+      <End Role="Rooms" EntitySet="Rooms" />
+      <End Role="Sessions" EntitySet="Sessions" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Bookings">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Date_Time_Booked" Type="datetime" Nullable="false" />
+    <Property Name="Session_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Locations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="City" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="State" Type="nvarchar" Nullable="false" MaxLength="2" />
+    <Property Name="ZipCode" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rooms">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Location_Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Sessions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Room_Id" Type="int" Nullable="false" />
+    <Property Name="Date_Time" Type="datetime" Nullable="false" />
+    <Property Name="Is_Full" Type="bit" Nullable="false" />
+    <Property Name="Is_Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Bookings_Sessions">
+    <End Role="Sessions" Type="JesterWerksWebsiteModel.Store.Sessions" Multiplicity="1" />
+    <End Role="Bookings" Type="JesterWerksWebsiteModel.Store.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sessions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="Session_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rooms_Locations">
+    <End Role="Locations" Type="JesterWerksWebsiteModel.Store.Locations" Multiplicity="1" />
+    <End Role="Rooms" Type="JesterWerksWebsiteModel.Store.Rooms" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Locations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Rooms">
+        <PropertyRef Name="Location_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sessions_Rooms">
+    <End Role="Rooms" Type="JesterWerksWebsiteModel.Store.Rooms" Multiplicity="1" />
+    <End Role="Sessions" Type="JesterWerksWebsiteModel.Store.Sessions" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rooms">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sessions">
+        <PropertyRef Name="Room_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

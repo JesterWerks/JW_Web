@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>JesterWerks Live-Action Adventures</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/scriptbundle")
+
+    </head>
+    <body>
+        <header>
+            <div id="masthead" class="jumbotron">
+                <h3>JesterWerks Live-Action Adventures</h3>
+            </div>
+            <nav>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <a href="/Home" class="btn btn-primary">Home</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>   
+        </header>
+
+        <div id="body" class="container">
+                @RenderBody()
+        </div>
+        <footer>
+        </footer>
+
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

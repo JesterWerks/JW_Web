@@ -1,0 +1,9 @@
+C:\Skip Stuff\GitHub\JW_Web\JesterWerks\JesterWerks.Domain\bin\Debug\JesterWerks.Domain.dll
+C:\Skip Stuff\GitHub\JW_Web\JesterWerks\JesterWerks.Domain\bin\Debug\JesterWerks.Domain.pdb
+C:\Skip Stuff\GitHub\JW_Web\JesterWerks\JesterWerks.Domain\bin\Debug\Data.EntityFramework.dll
+C:\Skip Stuff\GitHub\JW_Web\JesterWerks\JesterWerks.Domain\bin\Debug\EntityFramework.dll
+C:\Skip Stuff\GitHub\JW_Web\JesterWerks\JesterWerks.Domain\bin\Debug\Data.EntityFramework.pdb
+C:\Skip Stuff\GitHub\JW_Web\JesterWerks\JesterWerks.Domain\bin\Debug\EntityFramework.xml
+C:\Skip Stuff\GitHub\JW_Web\JesterWerks\JesterWerks.Domain\obj\Debug\JesterWerks.Domain.csprojResolveAssemblyReference.cache
+C:\Skip Stuff\GitHub\JW_Web\JesterWerks\JesterWerks.Domain\obj\Debug\JesterWerks.Domain.dll
+C:\Skip Stuff\GitHub\JW_Web\JesterWerks\JesterWerks.Domain\obj\Debug\JesterWerks.Domain.pdb
